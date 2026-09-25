@@ -78,32 +78,36 @@ A clean, modern, and high-performance personal developer portfolio for **Sarvesh
 
 ---
 
-## 🚀 How to Deploy on Vercel
+## 🚀 Deployment Guide
 
-### Option 1: Deploy with Vercel CLI (Fastest)
+### Option 1: Deploy to GitHub Pages (Recommended)
 
-1. Open PowerShell in `c:\Partition\Portfolio`:
+1. Create a repository on GitHub (e.g. named `portfolio` or `25sarvesh2005.github.io`).
+2. Link this local repository and push:
    ```bash
-   npx vercel
-   ```
-2. Accept default settings by pressing **Enter**. Your site will be deployed live on an edge `.vercel.app` URL in seconds.
-3. For production:
-   ```bash
-   npx vercel --prod
-   ```
-
-### Option 2: Deploy via GitHub
-
-1. Push this directory to your GitHub account:
-   ```bash
-   git init
-   git add .
-   git commit -m "Sarvesh Sharma Portfolio"
-   git remote add origin https://github.com/25sarvesh2005/portfolio.git
-   git branch -M main
+   git remote add origin https://github.com/25sarvesh2005/<REPO_NAME>.git
    git push -u origin main
    ```
-2. Go to [vercel.com](https://vercel.com), click **"Add New"** > **"Project"**, import your repository, and click **"Deploy"**.
+3. In your GitHub repository:
+   - Go to **Settings** > **Pages**.
+   - Under **Build and deployment** > **Source**:
+     - Choose **Deploy from a branch** -> Branch: `main` / Folder: `/(root)` -> Click **Save**.
+     - *(Alternatively, select **GitHub Actions** to use the preconfigured `.github/workflows/deploy.yml` workflow).*
+4. Within 1-2 minutes, your portfolio will be live at:
+   - `https://25sarvesh2005.github.io/<REPO_NAME>/` (or `https://25sarvesh2005.github.io` if repo name is `25sarvesh2005.github.io`)
+
+---
+
+### Option 2: Deploy to Vercel
+
+1. **Via CLI**:
+   ```bash
+   npx vercel
+   # For production:
+   npx vercel --prod
+   ```
+2. **Via GitHub**:
+   - Go to [vercel.com](https://vercel.com), click **"Add New"** > **"Project"**, import your repository, and click **"Deploy"**.
 
 ---
 
