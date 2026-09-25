@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvesh Sharma — Resume</title>
+  <meta name="description" content="Resume of Sarvesh Sharma — Computer Science & Business Systems student at St. Vincent Pallotti College of Engineering and Technology, Nagpur.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555555;
+      --line: #e2e8f0;
+      --accent: #0f172a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      padding: 32px 16px;
+      line-height: 1.5;
+      font-size: 13.5px;
+    }
+    .resume-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 44px 48px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid var(--line);
+    }
+    .action-bar {
+      max-width: 820px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .back-btn, .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .back-btn {
+      background: #ffffff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .back-btn:hover {
+      background: #f1f5f9;
+    }
+    .print-btn {
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #0f172a;
+    }
+    .print-btn:hover {
+      background: #1e293b;
+    }
+    header {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .headline {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12.5px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .contact-row a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 18px;
+    }
+    h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .entry {
+      margin-bottom: 12px;
+    }
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .entry-title {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 13.5px;
+    }
+    .entry-subtitle {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+    }
+    ul {
+      margin-left: 18px;
+      margin-top: 4px;
+    }
+    li {
+      margin-bottom: 3px;
+      font-size: 13px;
+      color: #334155;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 16px;
+    }
+    .skill-category {
+      font-size: 12.5px;
+    }
+    .skill-name {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .resume-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      @page {
+        margin: 1.4cm 1.4cm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <h1>Sarvesh Sharma</h1>
+      <div class="headline">Computer Science & Business Systems Undergraduate • Software Engineering & Real-Time 3D</div>
+      <div class="contact-row">
+        <span>📍 Nagpur, Maharashtra, India</span>
+        <span>📧 <a href="mailto:Sarvesh.sh7890@gmail.com">Sarvesh.sh7890@gmail.com</a></span>
+        <span>📞 +91 9309088131</span>
+        <span>💻 <a href="https://github.com/25sarvesh2005" target="_blank">github.com/25sarvesh2005</a></span>
+        <span>🔗 <a href="https://linkedin.com/in/sarvesh-sharma" target="_blank">linkedin.com/in/sarvesh-sharma</a></span>
+      </div>
+    </header>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">St. Vincent Pallotti College of Engineering and Technology, Nagpur</span>
+            <span class="entry-subtitle">— B.Tech in Computer Science and Business Systems (CSBS)</span>
+          </div>
+          <span class="entry-date">Expected 2027</span>
+        </div>
+        <ul>
+          <li><strong>Academic Record:</strong> CGPA: <strong>8.33 / 10</strong> (up to 6th semester)</li>
+          <li><strong>Coursework:</strong> Data Structures & Algorithms, Database Management Systems (DBMS), OOP, Operating Systems, Cloud Computing, Business Analytics, Computer Networks.</li>
+        </ul>
+      </div>
+      <div class="entry" style="margin-top: 6px;">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Tip Top Convent, Nagpur</span>
+            <span class="entry-subtitle">— Senior Secondary (Class XII: 66.6%) & Secondary (Class X: 80.80%)</span>
+          </div>
+          <span class="entry-date">2021 – 2023</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <span class="skill-name">Languages:</span> C++, Python, Kotlin, TypeScript, GDScript, SQL
+        </div>
+        <div class="skill-category">
+          <span class="skill-name">Backend & AI:</span> FastAPI, Model Context Protocol (FastMCP), Pytest, Google Gemini SDK, REST APIs, JWT Auth
+        </div>
+        <div class="skill-category">
+          <span class="skill-name">Databases & Concurrency:</span> PostgreSQL (SELECT FOR UPDATE row locks), MongoDB (ODMantic), Firebase Realtime DB
+        </div>
+        <div class="skill-category">
+          <span class="skill-name">Desktop & Web:</span> Electron 34, React 19, Vite, Playwright DOM Automation, Typed IPC Bridges
+        </div>
+        <div class="skill-category">
+          <span class="skill-name">Game Engines & 3D:</span> Unreal Engine 5.x, Phaser 3, Godot 4.7, Blender, HLSL Shaders, Twinmotion
+        </div>
+        <div class="skill-category">
+          <span class="skill-name">Mobile & Tools:</span> Kotlin, Android Studio, Firebase Suite, Razorpay SDK, Git, Postman, Docker
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2>Featured Engineering Projects (Built Codebases & Repositories)</h2>
+
+      <!-- Project 1: Whitfield WMS -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Whitfield Warehouse Management System (WMS)</span>
+            <span class="entry-subtitle">[FastAPI, React 19, FastMCP, PostgreSQL, SELECT FOR UPDATE, Docker]</span>
+          </div>
+          <span class="entry-date"><a href="https://warehouse-management-system-jade-seven.vercel.app" target="_blank" style="color: #0284c7; text-decoration: none;">Live App ↗</a> • <a href="https://github.com/25sarvesh2005/WAREHOUSE-MANAGEMENT-SYSTEM" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a></span>
+        </div>
+        <ul>
+          <li>Engineered a mission-critical bicoastal fulfillment platform (Reno & Columbus) managing multi-tenant inventory with an immutable double-entry ledger.</li>
+          <li>Eliminated inventory race conditions during high-volume sales by enforcing pessimistic row-level locking (<code>SELECT ... FOR UPDATE</code>) within atomic ACID transactions.</li>
+          <li>Constructed an enterprise Model Context Protocol (FastMCP) server exposing 8 scoped operational tools at <code>/mcp</code> for AI agent workflows.</li>
+          <li>Architected an autonomous transactional outbox committing 22 domain lifecycle events atomically with background ASGI lifespan SLA workers.</li>
+          <li>Maintained 100% CI pass rate with <strong>122 automated unit and E2E tests</strong> in Pytest and 0 frontend TypeScript/lint errors.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2: CityCare Clinic -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">CityCare Clinic — Healthcare & FastMCP Platform</span>
+            <span class="entry-subtitle">[FastAPI, FastMCP, MongoDB, ODMantic, Telegram Bot, Google Gemini]</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/25sarvesh2005/CityCareClinic" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a></span>
+        </div>
+        <ul>
+          <li>Built a multi-tenant medical appointment management platform with a dedicated Model Context Protocol (FastMCP) server supporting stdio and Streamable HTTP.</li>
+          <li>Developed a patient-facing Telegram bot gateway handling automated symptom triage, doctor specialization lookups, and confirmed slot bookings.</li>
+          <li>Engineered an availability-first booking policy that strictly derives caller identity from validated JWT claims, preventing model prompt injection misuse.</li>
+          <li>Verified MongoDB transactional persistence and concurrency controls through automated Day-7 E2E Pytest test suites.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3: FormPilot AI -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">FormPilot AI — Enterprise Desktop Document Automation</span>
+            <span class="entry-subtitle">[Electron 34, React 18, TypeScript, FastAPI, Playwright, Gemini 2.5 Vision, DPAPI]</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/25sarvesh2005/AIAUTOPILOT_FORM" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a></span>
+        </div>
+        <ul>
+          <li>Created a desktop automation engine extracting structured data from scanned admission certificates via Gemini Multimodal Vision and PyMuPDF.</li>
+          <li>Built a Playwright DOM automation engine with dynamic selector generation and radio-group container normalization.</li>
+          <li>Implemented a deterministic <code>PolicyEngine</code> with 14 safety assertions structurally prohibiting autonomous web submissions (<code>DENIED_FINAL_SUBMISSION</code>).</li>
+          <li>Hardened credentials using Windows DPAPI OS-level <code>safeStorage</code> encryption for API keys; verified across <strong>61 automated checks</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Project 4: Devil's Due & Simulation -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Devil's Due — Deterministic Simulation Engine</span>
+            <span class="entry-subtitle">[Phaser 3, TypeScript, Pure Reducer, xoshiro128**, Web Audio API, SHA-256]</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/25sarvesh2005/Slot_777" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a></span>
+        </div>
+        <ul>
+          <li>Developed a deterministic browser simulation game powered by an authoritative pure reducer core with 0 floating-point money math (safe integer <code>Cents</code>).</li>
+          <li>Integrated xoshiro128** PRNG stepping, pre-bet prediction locks, and a 3-bus procedural Web Audio synthesizer.</li>
+          <li>Validated statistical economic balance across a <strong>250,000-run automated Monte Carlo test suite</strong>; packaged with SHA-256 cryptographic verification.</li>
+        </ul>
+      </div>
+
+      <!-- Project 5: BESTI CANDO -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">BESTI CANDO — 2D Trade & Negotiation Economy</span>
+            <span class="entry-subtitle">[Godot 4.7, GDScript, Headless CI, Versioned Save Migration v17]</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/25sarvesh2005/BESTI-CANDO" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a></span>
+        </div>
+        <ul>
+          <li>Constructed a 2D pawn shop negotiation and trading simulation in Godot 4.7 with dynamic counteroffer curves and customer mood ledgers.</li>
+          <li>Built multi-step item appraisal, provenance tracking, and durable save/load state migration.</li>
+          <li>Established automated headless test runner passing <strong>1,944 checks across 46 suites with 0 failures</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Project 6: Smart Canteen -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Smart Canteen — Android Ordering Platform</span>
+            <span class="entry-subtitle">[Kotlin, Android Studio, Firebase Realtime DB, Firebase Auth, Razorpay SDK]</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/25sarvesh2005/canteenapp" target="_blank" style="color: #0284c7; text-decoration: none;">GitHub ↗</a> • <a href="https://github.com/25sarvesh2005/canteenapp/releases" target="_blank" style="color: #0284c7; text-decoration: none;">APK Release ↗</a></span>
+        </div>
+        <ul>
+          <li>Engineered a native Android food ordering application facilitating campus cafeteria operations with MVVM architectural patterns.</li>
+          <li>Implemented atomic cart updates and inventory decrement writes in Firebase Realtime Database with idempotency validation.</li>
+          <li>Integrated Razorpay payment gateway handling asynchronous payment callbacks and kitchen order queue feeds.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Architectural Concepts & Technical Specifications -->
+    <section>
+      <h2>Architectural Concepts & System Specifications (Technical Designs)</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">College Bus Fleet Telemetry System (Concept Spec CBTS-001)</span>
+            <span class="entry-subtitle">[AIS-140 GPS Telemetry, RFID Smart Cards, FastAPI, Mosquitto MQTT, Geo-Fencing]</span>
+          </div>
+          <span class="entry-date" style="color: #64748b; font-style: italic;">Architectural Specification</span>
+        </div>
+        <ul>
+          <li>Authored technical specification for student transit safety network adhering to AIS-140 vehicular standards with flash memory offline buffers.</li>
+          <li>Designed MQTT topic hierarchy with QoS 2 priority queuing for emergency SOS triggers and sub-50ms polygonal ray-casting geofence breach detectors.</li>
+        </ul>
+      </div>
+
+      <div class="entry" style="margin-top: 6px;">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">AR/VR Spatial Visualization System (Concept Spec XR-REV1)</span>
+            <span class="entry-subtitle">[OpenXR, WebXR, 6-DoF Optical Gestures, Binaural HRTF Synthesis, Unreal Engine 5]</span>
+          </div>
+          <span class="entry-date" style="color: #64748b; font-style: italic;">Architectural Specification</span>
+        </div>
+        <ul>
+          <li>Formulated cross-platform spatial computing architecture binding standard OpenXR action sets with a sub-20ms motion-to-photon latency target.</li>
+          <li>Designed volumetric mesh reconstruction pipeline for depth camera point clouds and binaural Head-Related Transfer Function acoustic modeling.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Practical Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Swami Vivekanand Foundation, Ralegaon</span>
+            <span class="entry-subtitle">— NGO Fund & Inventory Management Intern</span>
+          </div>
+          <span class="entry-date">45-Day Internship</span>
+        </div>
+        <ul>
+          <li>Assisted in financial ledger tracking, fund allocation documentation, and donor contribution record audits.</li>
+          <li>Managed physical inventory logs and coordinated supply disbursements across foundation initiatives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Certifications & Learning -->
+    <section>
+      <h2>Certifications & Professional Learning</h2>
+      <ul>
+        <li><strong>NPTEL:</strong> Cloud Computing — Distributed systems, virtualization, and cloud architectural patterns.</li>
+        <li><strong>Infosys Springboard:</strong> Unreal Engine, Shader Technologies, and Blender certifications.</li>
+        <li><strong>NPTEL:</strong> Business Analytics for Management Decision — Statistical analysis and predictive modeling.</li>
+        <li><strong>AIDCON 2026:</strong> Certificate of Participation (Advantage Vidarbha).</li>
+      </ul>
+    </section>
+
+    <!-- Languages -->
+    <section>
+      <h2>Languages</h2>
+      <p style="font-size: 13px; color: #334155;"><strong>English:</strong> Fluent • <strong>Hindi:</strong> Native • <strong>German:</strong> Beginner (Learning A1/A2)</p>
+    </section>
+  </div>
+
+</body>
+</html>

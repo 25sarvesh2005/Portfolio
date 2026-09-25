@@ -1,0 +1,14 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies & Build
+node_modules/
+dist/
+.vercel/
+
+# Logs & Environment
+*.log
+.env
+.env.local

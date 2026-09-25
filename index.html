@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Best Practices -->
+  <title>Sarvesh Sharma — Portfolio</title>
+  <meta name="description" content="Portfolio of Sarvesh Sharma — Computer Science and Business Systems student at St. Vincent Pallotti College of Engineering & Technology, Nagpur (CGPA 8.33 / 10 up to 6th semester), working across software engineering, backend APIs, and real-time 3D technology.">
+  <meta name="keywords" content="Sarvesh Sharma, Computer Science, Unreal Engine, Real-time 3D, AR/VR, Blender, HLSL, Shader Development, FastAPI, Python, Kotlin, Android, PostgreSQL, Nagpur">
+  <meta name="author" content="Sarvesh Sharma">
+  <meta name="theme-color" content="#070709">
+  
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/25sarvesh2005">
+  <meta property="og:title" content="Sarvesh Sharma — Portfolio">
+  <meta property="og:description" content="Computer Science and Business Systems student building across software engineering and real-time 3D technology.">
+  <meta property="og:image" content="assets/images/sarvesh.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sarvesh Sharma — Portfolio">
+  <meta name="twitter:description" content="Computer Science and Business Systems student building across software engineering and real-time 3D technology.">
+  <meta name="twitter:image" content="assets/images/sarvesh.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%23070709'/><text x='50%' y='62%' font-size='46' font-family='sans-serif' font-weight='800' fill='%23ffffff' text-anchor='middle'>SS</text></svg>">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sarvesh Sharma",
+    "jobTitle": "Student, Computer Science and Business Systems",
+    "telephone": "+919309088131",
+    "email": "Sarvesh.sh7890@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nagpur",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "St. Vincent Pallotti College of Engineering and Technology, Nagpur"
+    },
+    "sameAs": [
+      "https://github.com/25sarvesh2005",
+      "https://linkedin.com/in/sarvesh-sharma"
+    ],
+    "knowsAbout": ["C++", "Python", "Kotlin", "FastAPI", "PostgreSQL", "MongoDB", "Android", "Firebase", "Unreal Engine", "Blender", "HLSL", "Shaders", "AR/VR"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Interactive Ambient Canvas Layer -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="ambient-noise"></div>
+  <div class="ambient-glow-circle glow-top-left"></div>
+  <div class="ambient-glow-circle glow-bottom-right"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor" id="cursor-dot"></div>
+  <div class="custom-cursor-follower" id="cursor-ring"></div>
+
+  <div class="app-wrapper">
+
+    <!-- Floating Navigation Bar -->
+    <header class="site-header" id="header">
+      <nav class="nav-container" aria-label="Main Navigation">
+        <a href="#hero" class="logo-area" aria-label="Sarvesh Sharma Home">
+          <div class="logo-symbol">SS</div>
+          <span class="logo-text">Sarvesh Sharma</span>
+        </a>
+
+        <ul class="nav-links">
+          <li class="nav-item"><a href="#about">About</a></li>
+          <li class="nav-item"><a href="#projects">Projects</a></li>
+          <li class="nav-item"><a href="#skills">Skills</a></li>
+          <li class="nav-item"><a href="#experience">Education & Experience</a></li>
+          <li class="nav-item"><a href="#interests">Interests</a></li>
+          <li class="nav-item"><a href="#terminal">Terminal</a></li>
+          <li class="nav-item"><a href="resume.html" target="_blank" style="color: var(--accent-pure); font-weight: 600;">Resume ↗</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cmd-k-pill" id="open-cmd-btn" aria-label="Open Command Palette" title="Command Palette (Cmd+K)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search</span>
+            <kbd>⌘K</kbd>
+          </button>
+
+          <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme" title="Toggle Obsidian/Pearl Theme">
+            <svg id="theme-moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="theme-sun-icon" style="display:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+
+          <button class="icon-btn" id="sound-toggle" aria-label="Toggle Haptic Clicks" title="Toggle Audio Clicks">
+            <svg id="sound-on-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            <svg id="sound-off-icon" style="display:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+          </button>
+
+          <a href="#contact" class="hire-btn">
+            <span>Get in Touch</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+
+          <button class="icon-btn mobile-menu-toggle" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content-col">
+              <div class="hero-status-badge">
+                <span class="status-dot"></span>
+                <span id="hero-status-text">B.Tech CSBS @ St. Vincent Pallotti • CGPA 8.33 / 10</span>
+              </div>
+
+              <h1 class="hero-title">
+                Building Across <span class="hero-title-highlight">Software Engineering</span> & Real-Time 3D.
+              </h1>
+
+              <p class="hero-bio" id="hero-bio-text">
+                I am a Computer Science and Business Systems student at St. Vincent Pallotti College of Engineering and Technology, Nagpur (CGPA: 8.33 / 10 up to 6th semester). Interested in both software engineering and real-time 3D technology, working across Unreal Engine, AR/VR, Blender, HLSL and shader development, backend APIs, databases, and AI/ML.
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="#projects" class="btn-primary">
+                  <span>Explore Projects</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+
+                <a href="resume.html" target="_blank" class="btn-glass" title="View & Print ATS-Compliant Resume">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  <span>Resume</span>
+                </a>
+
+                <a href="#terminal" class="btn-glass">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                  <span>Terminal</span>
+                </a>
+
+                <button class="btn-glass" id="copy-email-hero-btn" title="Click to copy email address">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy Email</span>
+                </button>
+              </div>
+
+              <!-- Quick Metrics Grid -->
+              <div class="hero-stats-row" id="hero-stats-container">
+                <!-- Dynamically populated from config.js -->
+              </div>
+            </div>
+
+            <!-- Hero Bento Visual / Monochromatic Portrait Card -->
+            <div class="hero-visual-card glass-panel spotlight-card">
+              <div class="hero-avatar-frame">
+                <img src="assets/images/sarvesh.jpg" alt="Sarvesh Sharma" loading="eager" width="600" height="600">
+              </div>
+
+              <div class="hero-floating-pill">
+                <div class="pill-info">
+                  <span class="pill-title">Sarvesh Sharma</span>
+                  <span class="pill-sub" id="live-time-ticker">Nagpur, Maharashtra • Local Time</span>
+                </div>
+                <div class="pill-code">Software • Real-Time 3D • AR/VR</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bento Grid Architecture & Philosophy Section -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">About Me</div>
+            <h2 class="section-title">Academic & Technical Foundations.</h2>
+            <p class="section-desc">
+              I am a Computer Science and Business Systems student interested in both software engineering and real-time 3D technology. I enjoy working across software and visual/interactive technologies rather than restricting myself to one area.
+            </p>
+          </div>
+
+          <div class="bento-grid">
+            <!-- Bento Item 1: Academic Specialization -->
+            <div class="bento-col-8 glass-panel spotlight-card bento-card">
+              <div>
+                <div class="bento-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+                <h3 class="bento-card-title">Computer Science & Business Systems (CSBS)</h3>
+                <p class="bento-card-text">
+                  Enrolled in B.Tech at <strong>St. Vincent Pallotti College of Engineering and Technology, Nagpur</strong> (Expected Graduation: 2027) with an academic CGPA of <strong>8.33 / 10</strong> (up to 6th semester). Coursework combines computer science fundamentals, DBMS, algorithms, OOP, cloud computing, and business systems analysis.
+                </p>
+                <div class="code-preview-box">
+                  <span class="code-comment">// High-performance system & API design (C++ / Python FastAPI)</span><br>
+                  <span class="code-keyword">struct</span> <span class="code-func">TelemetryPacket</span> { <span class="code-func">uint64_t</span> timestamp; <span class="code-func">float</span> coordinates[<span class="code-string">3</span>]; };<br>
+                  <span class="code-comment"># FastAPI RESTful endpoint with Pydantic validation</span><br>
+                  <span class="code-keyword">async def</span> <span class="code-func">verify_canteen_order</span>(order_id: <span class="code-func">str</span>): ...
+                </div>
+              </div>
+            </div>
+
+            <!-- Bento Item 2: Certifications -->
+            <div class="bento-col-4 glass-panel spotlight-card bento-card">
+              <div>
+                <div class="bento-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
+                <h3 class="bento-card-title">Certifications & Courses</h3>
+                <p class="bento-card-text">
+                  • <strong>NPTEL</strong>: Cloud Computing<br>
+                  • <strong>Infosys Springboard</strong>: Blender, Unreal Engine & Shader Technologies<br>
+                  • <strong>NPTEL</strong>: Business Analytics for Management Decision<br>
+                  • <strong>AIDCON 2026</strong>: Appreciation Certificate
+                </p>
+              </div>
+              <div class="system-live-bar">
+                <span>Verified Credentials</span>
+                <span class="uptime-badge">NPTEL & Infosys Springboard</span>
+              </div>
+            </div>
+
+            <!-- Bento Item 3: Backend & Mobile -->
+            <div class="bento-col-4 glass-panel spotlight-card bento-card">
+              <div>
+                <div class="bento-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <h3 class="bento-card-title">Backend & Android Mobile</h3>
+                <p class="bento-card-text">
+                  Building backend services and mobile apps using FastAPI, Node.js/Express, PostgreSQL, MongoDB, and native Android development with Kotlin, Firebase, and Razorpay.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bento Item 4: Real-Time 3D, HLSL & Shaders -->
+            <div class="bento-col-4 glass-panel spotlight-card bento-card">
+              <div>
+                <div class="bento-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <h3 class="bento-card-title">Real-Time 3D & Shaders</h3>
+                <p class="bento-card-text">
+                  Working with Unreal Engine 5.x, real-time rendering, HLSL shader development, material patterns, textures, cloth simulation, physics, Blender modeling, and Twinmotion.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bento Item 5: NGO Internship & Inventory -->
+            <div class="bento-col-4 glass-panel spotlight-card bento-card">
+              <div>
+                <div class="bento-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </div>
+                <h3 class="bento-card-title">Practical Experience</h3>
+                <p class="bento-card-text">
+                  Completed a 45-day internship at <strong>Swami Vivekanand Foundation, Ralegaon</strong> involving NGO-related fund management work and operational inventory management tracking.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Projects Showcase -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Verifiable Engineering Proofs</div>
+            <h2 class="section-title">Architecture Case Studies & Proofs.</h2>
+            <p class="section-desc">
+              Full-stack platforms, autonomous AI agents, game engines, and real-time graphics backed by verifiable architecture schematics, screenshot proofs, and passing CI test suites. Click any project to inspect.
+            </p>
+          </div>
+
+          <!-- Project Filter Controls -->
+          <div class="projects-filter-wrapper" id="projects-filter-container">
+            <!-- Tier 1: Project Type Filter (Built Codebases vs Concept Designs) -->
+            <div class="projects-type-filter" role="tablist" aria-label="Project Type Filter">
+              <button class="type-filter-btn active" data-type="all">
+                <span>All Projects</span>
+                <span class="count-pill">9</span>
+              </button>
+              <button class="type-filter-btn" data-type="built">
+                <span class="status-dot" style="width: 7px; height: 7px; display: inline-block;"></span>
+                <span>Built & Verified Repos</span>
+                <span class="count-pill">6</span>
+              </button>
+              <button class="type-filter-btn" data-type="concept">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20"></path><path d="M12 2l7 19H5z"></path></svg>
+                <span>Concept Designs & Specs</span>
+                <span class="count-pill">3</span>
+              </button>
+            </div>
+
+            <!-- Tier 2: Domain Discipline Filter -->
+            <div class="projects-category-filter" role="tablist" aria-label="Domain Category Filter">
+              <button class="filter-btn active" data-filter="all">All Disciplines</button>
+              <button class="filter-btn" data-filter="enterprise">Enterprise & Logistics</button>
+              <button class="filter-btn" data-filter="ai">AI Agents & FastMCP</button>
+              <button class="filter-btn" data-filter="simulation">Engines & Simulations</button>
+              <button class="filter-btn" data-filter="3d">Real-Time 3D & AR/VR</button>
+              <button class="filter-btn" data-filter="mobile">Android Mobile & IoT</button>
+            </div>
+          </div>
+
+          <!-- Projects Dynamic Grid -->
+          <div class="projects-grid" id="projects-grid">
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Architecture Mastery Matrix -->
+      <section id="skills">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Technical Skills</div>
+            <h2 class="section-title">Languages, Tools & Technologies.</h2>
+            <p class="section-desc">
+              Core competencies across programming languages, backend frameworks, mobile engineering, and real-time 3D graphics tools.
+            </p>
+          </div>
+
+          <div class="skills-container" id="skills-container">
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Experience & Career Milestones -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Journey & Milestones</div>
+            <h2 class="section-title">Education, Experience & Certifications.</h2>
+            <p class="section-desc">
+              Academic progression at St. Vincent Pallotti College of Engineering, internship experience, and certified courses.
+            </p>
+          </div>
+
+          <div class="timeline-track" id="experience-timeline">
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Current Areas of Interest -->
+      <section id="interests">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Currently Exploring</div>
+            <h2 class="section-title">Current Areas of Interest.</h2>
+            <p class="section-desc">
+              Technical fields and emerging domains I actively explore across software engineering, real-time 3D, and interactive graphics.
+            </p>
+          </div>
+
+          <div class="testimonials-grid" id="interests-grid">
+            <!-- Dynamically populated from script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Developer Terminal -->
+      <section id="terminal">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Interactive Shell</div>
+            <h2 class="section-title">Developer Console.</h2>
+            <p class="section-desc">
+              Explore my background directly via the interactive shell. Type <code style="font-family: var(--font-mono); color: var(--accent-pure);">help</code> to view available utilities.
+            </p>
+          </div>
+
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="terminal-title">sarvesh@pallotti-workstation: ~ (zsh)</div>
+              <div class="terminal-actions-hint">Try: "resume", "architecture", "projects", "skills", "bio"</div>
+            </div>
+
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-history" id="terminal-history">
+                <div class="terminal-entry">
+                  <div class="term-cmd-output">
+                    Welcome to Sarvesh Sharma's virtual terminal v2.4.0 (x86_64-linux)<br>
+                    B.Tech CSBS @ St. Vincent Pallotti College of Engineering (CGPA: 8.33 / 10 up to 6th sem)<br>
+                    Type <span style="color: #fff; font-weight: bold;">help</span> or <span style="color: #fff; font-weight: bold;">resume</span> to inspect commands and credentials.
+                  </div>
+                </div>
+              </div>
+
+              <form class="terminal-input-row" id="terminal-form" onsubmit="return false;" autocomplete="off">
+                <span class="term-prompt-symbol">➜</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem;">~</span>
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="type a command..." spellcheck="false" autofocus>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact & Connect Section -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Get In Touch</div>
+            <h2 class="section-title">Let's Connect.</h2>
+            <p class="section-desc">
+              I am open to software engineering internships, junior/associate developer opportunities, and real-time 3D projects. Reach out via email, phone, or LinkedIn.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Quick Contact Information Tiles -->
+            <div class="contact-info-panel">
+              <a href="mailto:Sarvesh.sh7890@gmail.com" class="glass-panel spotlight-card contact-tile" id="contact-email-link">
+                <div class="tile-left">
+                  <div class="tile-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div>
+                    <div class="tile-title">Email Address</div>
+                    <div class="tile-val">Sarvesh.sh7890@gmail.com</div>
+                  </div>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+
+              <a href="tel:+919309088131" class="glass-panel spotlight-card contact-tile" id="contact-phone-link">
+                <div class="tile-left">
+                  <div class="tile-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <div>
+                    <div class="tile-title">Phone</div>
+                    <div class="tile-val">+91 9309088131</div>
+                  </div>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+
+              <a href="https://github.com/25sarvesh2005" target="_blank" rel="noopener noreferrer" class="glass-panel spotlight-card contact-tile">
+                <div class="tile-left">
+                  <div class="tile-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </div>
+                  <div>
+                    <div class="tile-title">GitHub Profile</div>
+                    <div class="tile-val">@25sarvesh2005</div>
+                  </div>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+
+              <a href="https://linkedin.com/in/sarvesh-sharma" target="_blank" rel="noopener noreferrer" class="glass-panel spotlight-card contact-tile">
+                <div class="tile-left">
+                  <div class="tile-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </div>
+                  <div>
+                    <div class="tile-title">LinkedIn Network</div>
+                    <div class="tile-val">/in/sarvesh-sharma</div>
+                  </div>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+
+              <div class="glass-panel spotlight-card contact-tile">
+                <div class="tile-left">
+                  <div class="tile-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <div class="tile-title">Location</div>
+                    <div class="tile-val">Nagpur, Maharashtra, India</div>
+                  </div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">IST (UTC+5:30)</span>
+              </div>
+            </div>
+
+            <!-- Interactive Message Dispatch Form -->
+            <div class="glass-panel spotlight-card contact-form">
+              <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;">Send Message</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">Interested in discussing a project or opportunity? Drop a note below.</p>
+
+              <form id="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="form-name" class="form-label">Your Name *</label>
+                  <input type="text" id="form-name" class="form-input" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email" class="form-label">Email Address *</label>
+                  <input type="email" id="form-email" class="form-input" placeholder="your.email@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-subject" class="form-label">Subject</label>
+                  <input type="text" id="form-subject" class="form-input" placeholder="Project or Opportunity Discussion">
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message" class="form-label">Message *</label>
+                  <textarea id="form-message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="justify-content: center; width: 100%; margin-top: 8px;" id="form-submit-btn">
+                  <span>Send Message</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="logo-area">
+              <div class="logo-symbol">SS</div>
+              <span class="logo-text">Sarvesh Sharma</span>
+            </div>
+            <p class="footer-copy">Computer Science & Business Systems Student • St. Vincent Pallotti College of Engineering, Nagpur</p>
+          </div>
+
+          <div class="footer-social-links">
+            <a href="https://github.com/25sarvesh2005" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://linkedin.com/in/sarvesh-sharma" target="_blank" rel="noopener noreferrer" class="icon-btn" title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="mailto:Sarvesh.sh7890@gmail.com" class="icon-btn" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <div>© <span id="current-year">2026</span> Sarvesh Sharma. Built with HTML/CSS/JS. All rights reserved.</div>
+          <div class="vercel-badge">
+            <svg width="14" height="14" viewBox="0 0 116 100" fill="currentColor"><path d="M57.5 0L115 100H0L57.5 0z"></path></svg>
+            <span>Optimized for Vercel Deployment</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Command Palette Modal (Cmd+K / Ctrl+K) -->
+  <div class="cmd-modal-backdrop" id="cmd-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+    <div class="cmd-palette-box">
+      <div class="cmd-search-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="cmd-search-input" id="cmd-search-input" placeholder="Type a section or action..." autofocus>
+        <span class="cmd-esc-badge">ESC</span>
+      </div>
+
+      <div class="cmd-results-list" id="cmd-results">
+        <div class="cmd-item" data-action="goto" data-target="#about">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span>Navigate: About Me</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto" data-target="#projects">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span>Navigate: Real Projects</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto" data-target="#skills">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon></svg>
+            <span>Navigate: Technical Skills</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto" data-target="#experience">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <span>Navigate: Education & Experience</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto" data-target="#interests">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span>Navigate: Areas of Interest</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto" data-target="#terminal">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            <span>Launch: Interactive Terminal</span>
+          </div>
+          <span class="cmd-item-shortcut">Jump</span>
+        </div>
+
+        <div class="cmd-item" data-action="goto-url" data-target="resume.html">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Action: View & Print ATS Resume</span>
+          </div>
+          <span class="cmd-item-shortcut">Open</span>
+        </div>
+
+        <div class="cmd-item" data-action="copy-email">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Action: Copy Email (Sarvesh.sh7890@gmail.com)</span>
+          </div>
+          <span class="cmd-item-shortcut">Copy</span>
+        </div>
+
+        <div class="cmd-item" data-action="toggle-theme">
+          <div class="cmd-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+            <span>Action: Toggle Obsidian / Pearl Theme</span>
+          </div>
+          <span class="cmd-item-shortcut">Switch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deep Project Case Study Modal -->
+  <div class="project-modal-backdrop" id="project-modal" role="dialog" aria-modal="true">
+    <div class="project-modal-container" id="project-modal-content">
+      <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Project Modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div id="modal-dynamic-body">
+        <!-- Content injected dynamically via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Shelf -->
+  <div class="toast-shelf" id="toast-shelf"></div>
+
+  <!-- Core Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
